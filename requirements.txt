@@ -1,3 +1,5 @@
+Pyrogram
 telethon
 cryptg
 requests
+TgCrypto
