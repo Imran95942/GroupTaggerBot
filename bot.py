@@ -217,7 +217,7 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/tektag ?(.*)"))
 async def mentionall(event):
-  global tekli_calisan
+  global anlik_calisan
   if event.is_private:
     return await event.respond("**Bu komutu gruplar ve kanallar için geçerli❗️**")
   
