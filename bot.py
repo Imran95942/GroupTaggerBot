@@ -291,8 +291,7 @@ ctag = "Bayaqdan səni gözləyirəme mən 🙄"
 "Yuxudan ele vaxtda dururam ki.. 🥱... Utaniram kimese Sabahin xeyir mesajı yazmağa😹"
 " 2 şeyι yadιnda ѕaхla мenleѕenѕe qedrιмι вιl мenle deyιlѕenѕe нeddιnι вιl мen şaнaм ѕen pιyada ѕen geтѕen 2 хal geder мen geтѕeм oyυn вιтer☝🏻👑"
 "Herkesin yanina getmek istediyin biri vardi. Gecenin ucun. Seherin  korunda.hatta cehennemin dibi olsa bele❤️"
-"Bir qadını xoşbəxt etmek istiyirsənsə Dost kimi dərtleş, Ata  kimi qoru Ve ADAM kimi SEV.🤭
-♥️"
+"Bir qadını xoşbəxt etmek istiyirsənsə Dost kimi dərtleş, Ata  kimi qoru Ve ADAM kimi SEV.🤭♥️"
 "her sey bosdu sevgi falan😃🍀deyin gulun heyat 5gunuydu 🥀2saniyeden sora ne olacaxini bilmiriy ama geleceyi xeyal edriy🍀✈️"
 "Bəlkə də axtardiğini tapa bilmədin məndə , Amma məndə tapdiqlarini ömür boyu qarşina çixan hər kəsdə axtaracaqsan..Çünki hər sehfine göz yuman , hər nazini çəkən , sənin üçün çox şeydən keçən , səni səni xoşbəxt eləmək üçün dəridən qabiqdan çixan bir qadini itirdin.. Və çox sağol niye bilirsənmi? Pərdələnmiş gözümü açdin , birdə bu cür düşünməməyimə komək etdin 🙂💔🥀"
 
