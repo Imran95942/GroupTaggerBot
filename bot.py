@@ -241,13 +241,13 @@ async def mentionall(event):
     return await event.respond("**Işleme başlamağım için sebeb yazın..**")
   
   if mode == "text_on_cmd":
-    tekli_calisan.append(event.chat_id)
+    anlik_calisan.append(event.chat_id)
     usrnum = 0
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
       usrtxt += f"**👤 - [{usr.first_name}](tg://user?id={usr.id}) \n**"
-      if event.chat_id not in tekli_calisan:
+      if event.chat_id not in anlik_calisan:
         await event.respond("**Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @LuciBots**❌****")
         return
       if usrnum == 1:
@@ -258,14 +258,14 @@ async def mentionall(event):
         
   
   if mode == "text_on_reply":
-    tekli_calisan.append(event.chat_id)
+    anlik_calisan.append(event.chat_id)
  
     usrnum = 0
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
       usrtxt += f"👤 - [{usr.first_name}](tg://user?id={usr.id}) \n"
-      if event.chat_id not in tekli_calisan:
+      if event.chat_id not in anlik_calisan:
         await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @LuciBots**❌**")
         return
       if usrnum == 1:
@@ -276,8 +276,8 @@ async def mentionall(event):
 
 @client.on(events.NewMessage(pattern='^(?i)/cancel'))
 async def cancel(event):
-  global tekli_calisan
-  tekli_calisan.remove(event.chat_id)
+  global anlik_calisan
+  anlik_calisan.remove(event.chat_id)
 	
 
 
