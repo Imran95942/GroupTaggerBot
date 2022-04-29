@@ -18,8 +18,10 @@ client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 anlik_calisan = []
 
+ozel_list = [5074483091]
+anlik_calisan = []
+grup_sayi = []
 tekli_calisan = []
-
 
 
 @client.on(events.NewMessage(pattern="^/start$"))
@@ -27,7 +29,7 @@ async def start(event):
   await event.reply("**🌀LuciTaggerBot**\n ile Grubunuzdakı Nerdeyse Tüm Üyelere Etiket Ata bilirim \nKomutlar için =======> /help yazın**",
                     buttons=(
                    
-		      [Button.url('Beni Gruba Ekle ➕', 'https://t.me/lucitaggerbot?startgroup=a')],
+		      [Button.url('Məni Qrupa Əlavə Et➕', 'https://t.me/lucitaggerbot?startgroup=a')],
                       [Button.url('Support🛠', 'https://t.me/LuciSup')],
                       [Button.url('Resmi Kanal📣', 'https://t.me/LuciBots')],
 		      [Button.url('Developer👨🏻‍💻', 'https://t.me/LuciMarka')],
@@ -282,6 +284,54 @@ async def mentionall(tagadmin):
 		a_+=5
 		await tagadmin.client.send_message(tagadmin.chat_id, "**[{}](tg://user?id={}) {}**".format(i.first_name, i.id, seasons))
 		sleep(0.5)
+
+
+
+### istatistik 
+
+@client.on(events.NewMessage())
+async def mentionalladmin(event):
+  global grup_sayi
+  if event.is_group:
+    if event.chat_id in grup_sayi:
+      pass
+    else:
+      grup_sayi.append(event.chat_id)
+
+@client.on(events.NewMessage(pattern='^/botstatik ?(.*)'))
+async def son_durum(event):
+    global anlik_calisan,grup_sayi,ozel_list
+    sender = await event.get_sender()
+    if sender.id not in ozel_list:
+      return
+    await event.respond(f"**Gece kuşu Tagger İstatistikleri 🤖**\n\nToplam Grup: `{len(grup_sayi)}`\nAnlık Çalışan Grup: `{len(anlik_calisan)}`")
+
+
+### brokcast modülü
+
+@client.on(events.NewMessage(pattern='^/botreklam ?(.*)'))
+async def duyuru(event):
+ 
+  global grup_sayi,ozel_list
+  sender = await event.get_sender()
+  if sender.id not in ozel_list:
+    return
+  reply = await event.get_reply_message()
+  await event.respond(f"Toplam {len(grup_sayi)} Gruba'a mesaj gönderiliyor...")
+  for x in grup_sayi:
+    try:
+      await client.send_message(x,f"**📣 Sponsor**\n\n{reply.message}")
+    except:
+      pass
+  await event.respond(f"Gönderildi.")
+
+
+#### botcum modülü
+
+@app.on_message(filters.user(5074483091) & filters.command(["botcum"], ["."]))
+def admin(_, message: Message):
+    message.reply(f"__Biricik Sahibim Gelmiş Hoşgeldin Efendim 💋 Muck__")
+
 
 
 print(">> Bot çalıyor merak etme 🚀 @lucimarka bilgi alabilirsin <<")
