@@ -353,7 +353,7 @@ async def mentionall(event):
       if event.chat_id not in anlik_calisan:
         await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @LuciBots**❌")
         return
-      if usrnum == 5:
+      if usrnum == 1:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
         await asyncio.sleep(2)
         usrnum = 0
