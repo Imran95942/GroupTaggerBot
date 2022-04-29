@@ -291,7 +291,7 @@ ctag = "Bayaqdan səni gözləyirəme mən 🙄"
 
 
 	
-@client.on(events.NewMessage(pattern="^/etag ?(.*)"))
+@client.on(events.NewMessage(pattern="^/ctag ?(.*)"))
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
@@ -326,7 +326,7 @@ async def mentionall(event):
       if event.chat_id not in anlik_calisan:
         await event.respond("** Etiket işlemi başarıyla durduruldu❌**")
         return
-      if usrnum == 5:
+      if usrnum == 1:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
         await asyncio.sleep(2)
         usrnum = 0
@@ -344,7 +344,7 @@ async def mentionall(event):
       if event.chat_id not in anlik_calisan:
         await event.respond("Işlem Başarıyla Durduruldu\n\n**Buda sizin reklamınız ola bilir @LuciBots**❌")
         return
-      if usrnum == 5:
+      if usrnum == 1:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
         await asyncio.sleep(2)
         usrnum = 0
