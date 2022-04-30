@@ -64,7 +64,7 @@ emoji = "🐵 🦁 🐯 🐱 🐶 🐺 🐻 🐨 🐼 🐹 🐭 🐰 🦊 🦝 �
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("**Эта команда действительна для групп и каналов ❗**")
+    return await event.respond("**Эту команду можно использовать в группах и каналах! ❗**")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
@@ -130,7 +130,7 @@ async def cancel(event):
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("Эта команда применяется к группам и каналам❗️**")
+    return await event.respond("Эту команду можно использовать в группах и каналах!❗️**")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
@@ -145,11 +145,11 @@ async def mentionall(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("Önceki Mesajlara Cevab Vermeyin")
+        return await event.respond("Не отвечайте на предыдущие сообщения")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("Başlatmak için sebeb yok❗️")
+    return await event.respond("Нет причин для начала❗️")
   else:
-    return await event.respond("Işleme başlamak için sebeb yok")
+    return await event.respond("Нет причин начинать процесс")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
@@ -177,7 +177,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"👥 - [{usr.first_name}](tg://user?id={usr.id}) \n"
       if event.chat_id not in anlik_calisan:
-        await event.respond("işlem başarıyla durduruldu❌")
+        await event.respond("Операция успешно остановлена❌")
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, usrtxt, reply_to=msg)
@@ -195,13 +195,13 @@ async def cancel(event):
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("**Bu komutu gruplar ve kanallar için geçerli❗️**")
+    return await event.respond("**Эту команду можно использовать в группах и каналах!❗️**")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Bu komutu sadace yoneticiler kullana bilir〽**")
+    return await event.respond("**Только администраторы могут использовать эту команду**")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -210,11 +210,11 @@ async def mentionall(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("**önceki mesajı etiketleye bilmerim*")
+        return await event.respond("**Пометьте предыдущее сообщение тегами*")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("Başlamaq için Sebeb Yazın❗️")
+    return await event.respond("Напишите причину, чтобы начать❗️")
   else:
-    return await event.respond("**Işleme başlamağım için sebeb yazın..**")
+    return await event.respond("**Напишите причину, чтобы начать..**")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
@@ -280,13 +280,13 @@ ctag = "Bayaqdan səni gözləyirəme mən 🙄"
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("**Bu komutu gruplar ve kanallar için geçerli❗**")
+    return await event.respond("**Эту команду можно использовать в группах и каналах!❗**")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Bu komutu sadace yoneticiler kullana bilir〽️**")
+    return await event.respond("**Только администраторы могут упоминать всех!〽️**")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -309,7 +309,7 @@ async def mentionall(event):
       usrnum += 1
       usrtxt += f"[{usr.first_name}](tg://user?id={usr.user.id}) "
       if event.chat_id not in anlik_calisan:
-        await event.respond("** Etiket işlemi başarıyla durduruldu❌**")
+        await event.respond("** Операция успешно остановлена❌**")
         return
       if usrnum == 1:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
@@ -336,7 +336,7 @@ async def mentionall(event):
         usrtxt = ""
 
 
-@client.on(events.NewMessage(pattern='^(?i)/cancel'))
+@client.on(events.NewMessage(pattern='^(?i)/finish'))
 async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
