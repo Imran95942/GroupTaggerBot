@@ -365,10 +365,6 @@ async def cancel(event):
   global anlik_calisan
   anlik_calisan.remove(event.chat_id)
 
-	
-	
-	
-
 
 @client.on(events.NewMessage(pattern="^/admins ?(.*)"))
 async def mentionall(tagadmin):
@@ -382,7 +378,7 @@ async def mentionall(tagadmin):
 	a_=0
 	await tagadmin.delete()
 	async for i in client.iter_participants(chat, filter=cp):
-		if a_ == 500:
+		if a_ == 50:
 			break
 		a_+=5
 		await tagadmin.client.send_message(tagadmin.chat_id, "**[{}](tg://user?id={}) {}**".format(i.first_name, i.id, seasons))
