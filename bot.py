@@ -335,7 +335,7 @@ async def mentionall(event):
       if event.chat_id not in anlik_calisan:
         await event.respond("** Etiket işlemi başarıyla durduruldu❌**")
         return
-      if usrnum == 1:
+      if usrnum == 2:
         await client.send_message(event.chat_id, f"{usrtxt}\n\n{msg}")
         await asyncio.sleep(2)
         usrnum = 0
