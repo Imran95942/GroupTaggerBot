@@ -136,7 +136,7 @@ async def mentionall(event):
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Только администраторы могут использовать эту команду.〽️**")
+    return await event.respond("**Эта команда доступна только для администраторов!.〽️**")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -201,7 +201,7 @@ async def mentionall(event):
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("**Только администраторы могут использовать эту команду**")
+    return await event.respond("**Эта команда доступна только для администраторов!**")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
